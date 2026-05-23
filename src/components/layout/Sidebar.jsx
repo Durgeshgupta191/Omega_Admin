@@ -1,63 +1,74 @@
 import { NavLink } from "react-router-dom";
+import { FiGrid, FiBox, FiBarChart2, FiSettings, FiLogOut } from "react-icons/fi";
 
-import { FiLogOut } from "react-icons/fi";
-
-import {
-  sidebarLinks,
-} from "../../constants/sidebarLinks";
+const links = [
+  {
+    name: "Dashboard",
+    path: "/",
+    icon: <FiGrid />,
+  },
+  {
+    name: "Products",
+    path: "/products",
+    icon: <FiBox />,
+  },
+  {
+    name: "Analytics",
+    path: "/analytics",
+    icon: <FiBarChart2 />,
+  },
+  {
+    name: "Settings",
+    path: "/settings",
+    icon: <FiSettings />,
+  },
+];
 
 const Sidebar = () => {
   return (
-    <aside className="hidden md:flex w-72 bg-white dark:bg-[#111827] border-r border-gray-100 flex-col px-6 py-8">
+    <aside className="hidden md:flex w-64 min-h-screen bg-[#0f172a] text-white flex-col border-r border-gray-800">
       
       {/* Logo */}
-      <div className="mb-14">
-        
-        <h1 className="text-3xl font-black bg-linear-to-r from-fuchsia-500 to-blue-500 bg-clip-text text-transparent">
+      <div className="px-6 py-8 border-b border-gray-800">
+        <h1 className="text-3xl font-bold bg-gradient-to-r from-fuchsia-500 to-blue-500 bg-clip-text text-transparent">
           Omega Admin
         </h1>
 
-        <p className="text-gray-600 dark:text-gray-300 text-sm mt-2">
+        <p className="text-gray-400 mt-2 text-sm">
           Modern SaaS Dashboard
         </p>
       </div>
 
       {/* Navigation */}
-      <nav className="space-y-3">
+      <nav className="flex-1 px-4 py-6 space-y-3">
         
-        {sidebarLinks.map((link) => {
-  const Icon = link.icon;
+        {links.map((link) => (
+          <NavLink
+            key={link.name}
+            to={link.path}
+            className={({ isActive }) =>
+              `flex items-center gap-4 px-4 py-3 rounded-2xl transition-all text-base font-medium
+              ${
+                isActive
+                  ? "bg-gradient-to-r from-fuchsia-500 to-blue-500 text-white shadow-lg"
+                  : "text-gray-300 hover:bg-[#1e293b]"
+              }`
+            }
+          >
+            <span className="text-xl">
+              {link.icon}
+            </span>
 
-  return (
-    <NavLink
-      key={link.name}
-      to={link.path}
-      className={({ isActive }) =>
-        `flex items-center gap-4 px-5 py-4 rounded-2xl font-semibold transition-all duration-300
-        
-        ${
-          isActive
-            ? "bg-white dark:bg-[#111827] text-[#7c3aed] shadow-sm"
-            : "text-gray-600 dark:text-gray-300 hover:bg-gray-100"
-        }`
-      }
-    >
-      <Icon className="text-xl" />
-
-      <span className="text-[16px]">
-        {link.name}
-      </span>
-    </NavLink>
-  );
-})}
+            {link.name}
+          </NavLink>
+        ))}
       </nav>
 
-      {/* Bottom */}
-      <div className="mt-auto pt-10 border-t border-gray-100">
+      {/* Logout */}
+      <div className="p-4 border-t border-gray-800">
         
-        <button className="flex items-center gap-3 text-gray-500 hover:text-red-500 transition-all duration-300 font-medium">
-          
-          <FiLogOut className="text-lg" />
+        <button className="flex items-center gap-3 text-gray-400 hover:text-red-400 transition-all">
+          <FiLogOut />
 
           Logout
         </button>
@@ -66,4 +77,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default Sidebar; 
