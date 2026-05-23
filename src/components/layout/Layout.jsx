@@ -8,7 +8,7 @@ const Layout = () => {
   return (
     <div className="min-h-screen p-2 md:p-6 bg-[#f4f7fb]">
       
-      <div className="bg-white rounded-[32px] min-h-[95vh] flex overflow-hidden shadow-2xl">
+      <div className="flex bg-[#f5f7fb] dark:bg-[#0f172a] min-h-screen transition-all duration-300">
         
         <Sidebar />
 

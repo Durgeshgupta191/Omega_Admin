@@ -8,7 +8,7 @@ import {
 
 const Sidebar = () => {
   return (
-    <aside className="hidden md:flex w-72 bg-white border-r border-gray-100 flex-col px-6 py-8">
+    <aside className="hidden md:flex w-72 bg-white dark:bg-[#111827] border-r border-gray-100 flex-col px-6 py-8">
       
       {/* Logo */}
       <div className="mb-14">
@@ -17,7 +17,7 @@ const Sidebar = () => {
           Omega Admin
         </h1>
 
-        <p className="text-gray-400 text-sm mt-2">
+        <p className="text-gray-600 dark:text-gray-300 text-sm mt-2">
           Modern SaaS Dashboard
         </p>
       </div>
@@ -37,8 +37,8 @@ const Sidebar = () => {
         
         ${
           isActive
-            ? "bg-[#f3efff] text-[#7c3aed] shadow-sm"
-            : "text-gray-600 hover:bg-gray-100"
+            ? "bg-white dark:bg-[#111827] text-[#7c3aed] shadow-sm"
+            : "text-gray-600 dark:text-gray-300 hover:bg-gray-100"
         }`
       }
     >

@@ -32,3 +32,8 @@ body {
   background: #a78bfa;
   border-radius: 20px;
 }
+
+.dark body {
+  background: #0f172a;
+  color: white;
+}

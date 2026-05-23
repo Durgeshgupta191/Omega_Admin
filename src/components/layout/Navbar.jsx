@@ -25,7 +25,7 @@ const { darkMode, setDarkMode } =
   useTheme();
 
   return (
-    <header className="h-24 border-b border-gray-100 px-4 md:px-8 flex items-center justify-between bg-white">
+    <header className="h-24 border-b border-gray-100 px-4 md:px-8 flex items-center justify-between bg-white dark:bg-[#1e293b]">
       
       {/* Left */}
       <div className="flex items-center gap-4">
@@ -41,7 +41,7 @@ const { darkMode, setDarkMode } =
         </button>
 
         <div>
-          <h1 className="text-2xl md:text-4xl font-bold text-gray-800">
+          <h1 className="text-2xl md:text-4xl font-bold text-gray-800 dark:text-white">
             Dashboard
           </h1>
 
@@ -67,18 +67,15 @@ const { darkMode, setDarkMode } =
         </div>
 
         <button
-          onClick={() =>
-            setDarkMode(!darkMode)
-          }
-          className="w-11 h-11 md:w-12 md:h-12 rounded-2xl border border-gray-200 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800 dark:border-gray-700"
+          onClick={() => {
+            document.documentElement.classList.toggle(
+              "dark"
+            );
+          }}
+          className="bg-[#f3efff] text-[#7c3aed] p-3 rounded-2xl"
         >
-          {darkMode ? (
-            <FiSun />
-          ) : (
-            <FiMoon />
-          )}
+          🌙
         </button>
-
         {/* Notification */}
         <button className="w-11 h-11 md:w-12 md:h-12 rounded-2xl border border-gray-200 flex items-center justify-center hover:bg-gray-100">
           <FiBell />
