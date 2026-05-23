@@ -1,99 +1,53 @@
-import {
-  FiBell,
-  FiSearch,
-  FiMenu,
-} from "react-icons/fi";
-
-import {
-  useSidebar,
-} from "../../context/SidebarContext";
-
-import {
-  FiMoon,
-  FiSun,
-} from "react-icons/fi";
-
-import {
-  useTheme,
-} from "../../context/ThemeContext";
+import { FiBell, FiMoon, FiSun, FiSearch } from "react-icons/fi";
+import { useTheme } from "../../context/ThemeContext";
 
 const Navbar = () => {
-  const { setIsSidebarOpen } =
-    useSidebar();
-
-const { darkMode, setDarkMode } =
-  useTheme();
+  const { darkMode, setDarkMode } = useTheme();
 
   return (
-    <header className="h-24 border-b border-gray-100 px-4 md:px-8 flex items-center justify-between bg-white dark:bg-[#1e293b]">
+    <header className="h-20 bg-white dark:bg-[#111827] border-b border-gray-100 dark:border-gray-800 px-6 flex items-center justify-between">
       
-      {/* Left */}
-      <div className="flex items-center gap-4">
+      {/* Search */}
+      <div className="hidden md:flex items-center bg-[#f5f7ff] dark:bg-[#1e293b] px-4 py-3 rounded-2xl w-[320px]">
         
-        {/* Mobile Menu */}
-        <button
-          onClick={() =>
-            setIsSidebarOpen(true)
-          }
-          className="md:hidden w-12 h-12 rounded-2xl border border-gray-200 flex items-center justify-center"
-        >
-          <FiMenu />
-        </button>
+        <FiSearch className="text-gray-400" />
 
-        <div>
-          <h1 className="text-2xl md:text-4xl font-bold text-gray-800 dark:text-white">
-            Dashboard
-          </h1>
-
-          <p className="text-gray-400 mt-1 text-sm md:text-base">
-            Welcome back, 👋
-          </p>
-        </div>
+        <input
+          type="text"
+          placeholder="Search..."
+          className="bg-transparent outline-none border-none ml-3 w-full text-sm dark:text-white"
+        />
       </div>
 
       {/* Right */}
-      <div className="flex items-center gap-3 md:gap-5">
+      <div className="flex items-center gap-4 ml-auto">
         
-        {/* Search */}
-        <div className="hidden md:flex items-center gap-3 bg-[#f5f7fb] px-5 py-3 rounded-2xl w-80">
-          
-          <FiSearch className="text-gray-400" />
-
-          <input
-            type="text"
-            placeholder="Search..."
-            className="bg-transparent outline-none w-full text-sm"
-          />
-        </div>
-
+        {/* Dark Mode */}
         <button
-          onClick={() => {
-            document.documentElement.classList.toggle(
-              "dark"
-            );
-          }}
-          className="bg-[#f3efff] text-[#7c3aed] p-3 rounded-2xl"
+          onClick={() => setDarkMode(!darkMode)}
+          className="w-12 h-12 rounded-2xl bg-[#f5f7ff] dark:bg-[#1e293b] flex items-center justify-center"
         >
-          🌙
+          {darkMode ? <FiSun /> : <FiMoon />}
         </button>
+
         {/* Notification */}
-        <button className="w-11 h-11 md:w-12 md:h-12 rounded-2xl border border-gray-200 flex items-center justify-center hover:bg-gray-100">
+        <button className="w-12 h-12 rounded-2xl bg-[#f5f7ff] dark:bg-[#1e293b] flex items-center justify-center">
           <FiBell />
         </button>
 
-        {/* Profile */}
-        <div className="flex items-center gap-3">
+        {/* User */}
+        <div className="flex items-center gap-3 bg-[#f5f7ff] dark:bg-[#1e293b] px-4 py-2 rounded-2xl">
           
-          <div className="w-11 h-11 md:w-12 md:h-12 rounded-2xl bg-linear-to-r from-fuchsia-500 to-blue-500 flex items-center justify-center text-white font-bold">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-fuchsia-500 to-blue-500 flex items-center justify-center text-white font-bold">
             D
           </div>
 
           <div className="hidden md:block">
-            <h3 className="font-semibold text-gray-700">
+            <h4 className="font-semibold dark:text-white">
               Durgesh
-            </h3>
+            </h4>
 
-            <p className="text-sm text-gray-400">
+            <p className="text-sm text-gray-500">
               Administrator
             </p>
           </div>
