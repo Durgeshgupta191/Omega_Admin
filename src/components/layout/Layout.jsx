@@ -1,27 +1,24 @@
-import { Outlet } from "react-router-dom";
-
 import Sidebar from "./Sidebar";
 import Navbar from "./Navbar";
-import MobileSidebar from "./MobileSidebar";
+import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
-    <div className="min-h-screen p-2 md:p-6 bg-[#f4f7fb]">
+    <div className="min-h-screen bg-[#f5f7ff] dark:bg-[#0f172a] flex">
       
-      <div className="flex bg-[#f5f7fb] dark:bg-[#0f172a] min-h-screen transition-all duration-300">
+      {/* Sidebar */}
+      <Sidebar />
+
+      {/* Main */}
+      <div className="flex-1 flex flex-col">
         
-        <Sidebar />
+        {/* Navbar */}
+        <Navbar />
 
-        <MobileSidebar />
-
-        <div className="flex-1 flex flex-col bg-[#fcfcff]">
-          
-          <Navbar />
-
-          <main className="p-4 md:p-10">
-            <Outlet />
-          </main>
-        </div>
+        {/* Page Content */}
+        <main className="flex-1 p-6 md:p-10 overflow-x-hidden">
+          <Outlet />
+        </main>
       </div>
     </div>
   );
