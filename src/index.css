@@ -1,25 +1,29 @@
 @import "tailwindcss";
 
+:root {
+  font-family: Inter, sans-serif;
+}
+
 * {
   margin: 0;
-  padding: 0;
+  padding: 190;
   box-sizing: border-box;
 }
 
 html,
 body,
 #root {
-  width: 100%;
   min-height: 100%;
-  font-family: Inter, sans-serif;
+  width: 100%;
 }
 
 body {
   background: #f5f7ff;
   color: #111827;
-  overflow-x: hidden;
+  font-family: Inter, sans-serif;
 }
 
+/* Dark Mode */
 .dark body {
   background: #0f172a;
   color: white;
@@ -31,6 +35,6 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #8b5cf6;
-  border-radius: 999px;
+  background: #a78bfa;
+  border-radius: 20px;
 }
